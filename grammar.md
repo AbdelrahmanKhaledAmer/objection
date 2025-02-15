@@ -2,8 +2,7 @@ The following is a description of the language grammar. It will be updated along
 
 ## Tokens
 
-Keywords (including primitive types)
-
+$\text{Keywords (including primitive types)}$
 $$
 \begin{align*}
 \textcolor{green}{\text{Int}} &\to \text{int}
@@ -11,18 +10,16 @@ $$
 \textcolor{green}{\text{Ret}} &\to \text{return}
 \end{align*}
 $$
-
-Symbols
-
+$\text{Symbols}$
 $$
 \begin{align*}
 \textcolor{green}{\text{LP}} &\to \text{(}
 \\
 \textcolor{green}{\text{RP}} &\to \text{)}
 \\
-\textcolor{green}{\text{LB}} &\to \text{\{}
+\textcolor{green}{\text{LB}} &\to \text{\\\{}
 \\
-\textcolor{green}{\text{RB}} &\to \text{\}}
+\textcolor{green}{\text{RB}} &\to \text{\\\}}
 \\
 \textcolor{green}{\text{Semi}} &\to \text{;}
 \\
@@ -31,9 +28,7 @@ $$
 \textcolor{green}{\text{Assign}} &\to \text{=}
 \end{align*}
 $$
-
-Complex Tokens
-
+$\text{Complex Tokens}$
 $$
 \begin{align*}
 \textcolor{green}{\text{Id}} &\to \text{[\_a-zA-Z][\_a-zA-Z0-9]*}
@@ -41,9 +36,7 @@ $$
 \textcolor{green}{\text{IntLit}} &\to \text{[0-9]}+
 \end{align*}
 $$
-
-Special Tokens (Not meant for parsing)
-
+$\text{Special Tokens (Not meant for parsing)}$
 $$
 \begin{align*}
 \textcolor{green}{\text{EOF}} &\to \text{End-Of-File}

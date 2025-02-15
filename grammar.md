@@ -2,7 +2,7 @@ The following is a description of the language grammar. It will be updated along
 
 ## Tokens
 
-$\text{Keywords (including primitive types)}$
+Keywords (including primitive types)
 
 $$
 \begin{align*}
@@ -12,7 +12,7 @@ $$
 \end{align*}
 $$
 
-$\text{Symbols}$
+Symbols
 
 $$
 \begin{align*}
@@ -32,7 +32,7 @@ $$
 \end{align*}
 $$
 
-$\text{Complex Tokens}$
+Complex Tokens
 
 $$
 \begin{align*}
@@ -42,7 +42,7 @@ $$
 \end{align*}
 $$
 
-$\text{Special Tokens (Not meant for parsing)}$
+Special Tokens (Not meant for parsing)
 
 $$
 \begin{align*}

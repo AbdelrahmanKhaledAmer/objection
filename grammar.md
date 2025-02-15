@@ -3,6 +3,7 @@ The following is a description of the language grammar. It will be updated along
 ## Tokens
 
 $\text{Keywords (including primitive types)}$
+
 $$
 \begin{align*}
 \textcolor{green}{\text{Int}} &\to \text{int}
@@ -10,7 +11,9 @@ $$
 \textcolor{green}{\text{Ret}} &\to \text{return}
 \end{align*}
 $$
+
 $\text{Symbols}$
+
 $$
 \begin{align*}
 \textcolor{green}{\text{LP}} &\to \text{(}
@@ -28,15 +31,20 @@ $$
 \textcolor{green}{\text{Assign}} &\to \text{=}
 \end{align*}
 $$
+
 $\text{Complex Tokens}$
+
 $$
 \begin{align*}
 \textcolor{green}{\text{Id}} &\to \text{[\_a-zA-Z][\_a-zA-Z0-9]*}
 \\
 \textcolor{green}{\text{IntLit}} &\to \text{[0-9]}+
 \end{align*}
+
 $$
+
 $\text{Special Tokens (Not meant for parsing)}$
+
 $$
 \begin{align*}
 \textcolor{green}{\text{EOF}} &\to \text{End-Of-File}

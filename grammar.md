@@ -40,7 +40,6 @@ $$
 \\
 \textcolor{green}{\text{IntLit}} &\to \text{[0-9]}+
 \end{align*}
-
 $$
 
 $\text{Special Tokens (Not meant for parsing)}$

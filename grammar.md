@@ -36,7 +36,7 @@ $\text{Complex Tokens}$
 
 $$
 \begin{align*}
-\textcolor{green}{\text{Id}} &\to \text{[\_a-zA-Z][\_a-zA-Z0-9]*}
+\textcolor{green}{\text{Id}} &\to \text{[\\\_a-zA-Z][\\\_a-zA-Z0-9]* }
 \\
 \textcolor{green}{\text{IntLit}} &\to \text{[0-9]}+
 \end{align*}
@@ -48,7 +48,7 @@ $$
 \begin{align*}
 \textcolor{green}{\text{EOF}} &\to \text{End-Of-File}
 \\
-\textcolor{green}{\text{UNKNOWN}} &\to \text{.*}
+\textcolor{green}{\text{UNKNOWN}} &\to \text{.* }
 \end{align*}
 $$
 

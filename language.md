@@ -104,17 +104,22 @@ Expressions can be:
 - Unary operations.
     - ex: `-5`.
     - ex: `~20`.
-    - In general, unary expressions are in the form '$\text{\textcolor{green}{Operand} expr}$' where '$\text{\textcolor{green}{Operand}}$' is the operator and '$\text{expr}$' is another valid expression.
+    - In general, unary expressions are in the form $\text{`\textcolor{green}{Operator} expr'}$
+        - where $\text{`expr'}$ is another valid expression.
 - Binary operations.
     - ex: `5 + 3`.
-    - In general, binary expressions are in the form '$\text{expr}_1 \text{\textcolor{green}{Operand} expr}_2$' where '$\text{\textcolor{green}{Operand}}$' is the operator and '$\text{expr}_1$' and '$\text{expr}_2$' are two other valid expressions.
+    - In general, binary expressions are in the form $\text{`expr}_1 \text{\textcolor{green}{Operand} expr}_2\text{'}$
+        - where $\text{`expr}_1\text{'}\texttt{ and }\text{expr}_2\text{'}$ are two other valid expressions.
 - Parenthesized expressions.
     - ex: `(3 * 1)`.
-    - In the form '$(\text{expr})$' where '$\text{expr}$' is another valid expression.
+    - In the form $(\text{`expr'})$
+        - where $\text{`expr'}$ is another valid expression.
     - Used to change the order of operations.
 - Function calls.
     - ex: `add(3, 4)`.
-    - In the form '$\text{func}(\text{arg}_1, \text{arg}_2, \ldots, \text{arg}_n)$' where '$\text{func}$' is a valid function and '$\text{arg}_1, \text{arg}_2, \ldots, \text{arg}_n$' are valid expressions.
+    - In the form $\text{`func}(\text{arg}_1, \text{arg}_2, \ldots, \text{arg}_n\text{'})$
+        - where $\text{`func'}$ is a valid function identifier that was previously assigned.
+        - and $\text{`arg}_1, \text{arg}_2, \ldots, \text{arg}_n\text{'}$ are valid expressions.
     - The function must be defined before it is called.
 - There is an operation precedence that all expressions follow.
     - The highest precedence is literal and variable expressions (which don't need to be evaluated).

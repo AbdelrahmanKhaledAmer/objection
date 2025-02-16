@@ -37,7 +37,8 @@ pub struct Token {
 impl Debug for Token {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         write!(
-            f, "{{{:?}, {:?}, ({:?}, {:?})}}",
+            f,
+            "{{{:?}, {:?}, ({:?}, {:?})}}",
             self.token_type, self.value, self.line, self.column
         )
     }

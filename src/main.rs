@@ -3,7 +3,12 @@ use std::fs::read_to_string;
 
 mod lexer {
     pub mod lexer;
-    mod tokens;
+    pub mod tokens;
+}
+
+mod parser {
+    mod ast;
+    pub mod parser;
 }
 
 fn main() {
@@ -21,13 +26,13 @@ fn main() {
     let args: Vec<String> = args().collect();
     let mut file_name = "";
     let mut print_tokens = false;
-    // let mut print_ast = false;
+    let mut print_ast = false;
     // let mut print_asm = false;
     for arg in args.iter().skip(1) {
         if arg == "-t" {
             print_tokens = true;
         } else if arg == "--ast" {
-            // print_ast = true;
+            print_ast = true;
         } else if arg == "--asm" {
             // print_asm = true;
         } else {
@@ -48,5 +53,12 @@ fn main() {
     // Print the tokens if the option is enabled
     if print_tokens {
         println!("{:?}", tokens);
+    }
+
+    // We will now pass the tokens to the parser
+    let ast = parser::parser::parse(tokens);
+    // Print the AST if the option is enabled
+    if print_ast {
+        println!("{:?}", ast);
     }
 }

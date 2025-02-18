@@ -4,7 +4,7 @@ use std::fmt::Formatter;
 use std::fmt::Result;
 use std::sync::OnceLock;
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TokenType {
     // Keywords
     //// Types

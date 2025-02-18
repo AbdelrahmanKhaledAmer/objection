@@ -1,10 +1,10 @@
 use std::iter::Peekable;
 use std::str::Chars;
 
-use super::tokens::Token;
-use super::tokens::TokenType;
 use super::tokens::get_keywords;
 use super::tokens::get_symbols;
+use super::tokens::Token;
+use super::tokens::TokenType;
 
 pub fn get_tokens(source_code: String) -> Vec<Token> {
     let mut chars = source_code.chars().peekable();
@@ -65,7 +65,12 @@ pub fn get_tokens(source_code: String) -> Vec<Token> {
         } else if symbols.keys().any(|symbol| symbol == &c.to_string()) {
             let value = c.to_string();
             let token_type = *symbols.get(value.as_str()).unwrap();
-            tokens.push(Token{token_type, value, line, column});
+            tokens.push(Token {
+                token_type,
+                value,
+                line,
+                column,
+            });
             column += 1;
 
         // Unknown token found
@@ -88,7 +93,12 @@ pub fn get_tokens(source_code: String) -> Vec<Token> {
     return tokens;
 }
 
-fn keyword_or_id(chars: &mut Peekable<Chars>, line_start: &u32, column_start: &mut u32, first_char: char) -> Token {
+fn keyword_or_id(
+    chars: &mut Peekable<Chars>,
+    line_start: &u32,
+    column_start: &mut u32,
+    first_char: char,
+) -> Token {
     let mut value = first_char.to_string();
     let line = *line_start;
     let column = *column_start;
@@ -105,10 +115,20 @@ fn keyword_or_id(chars: &mut Peekable<Chars>, line_start: &u32, column_start: &m
         Some(token_type) => *token_type,
         None => TokenType::Id,
     };
-    Token{token_type, value, line, column}
+    Token {
+        token_type,
+        value,
+        line,
+        column,
+    }
 }
 
-fn int_lit(chars: &mut Peekable<Chars>, line_start: &u32, column_start: &mut u32, first_char: char) -> Token {
+fn int_lit(
+    chars: &mut Peekable<Chars>,
+    line_start: &u32,
+    column_start: &mut u32,
+    first_char: char,
+) -> Token {
     let mut value = first_char.to_string();
     let line = *line_start;
     let column = *column_start;
@@ -120,5 +140,10 @@ fn int_lit(chars: &mut Peekable<Chars>, line_start: &u32, column_start: &mut u32
             break;
         }
     }
-    Token{token_type: TokenType::IntLit, value, line, column}
+    Token {
+        token_type: TokenType::IntLit,
+        value,
+        line,
+        column,
+    }
 }

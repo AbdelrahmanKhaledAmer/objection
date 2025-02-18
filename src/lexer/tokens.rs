@@ -4,7 +4,7 @@ use std::fmt::Formatter;
 use std::fmt::Result;
 use std::sync::OnceLock;
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub enum TokenType {
     // Keywords
     //// Types
@@ -37,7 +37,8 @@ pub struct Token {
 impl Debug for Token {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         write!(
-            f, "{{{:?}, {:?}, ({:?}, {:?})}}",
+            f,
+            "{{{:?}, {:?}, ({:?}, {:?})}}",
             self.token_type, self.value, self.line, self.column
         )
     }

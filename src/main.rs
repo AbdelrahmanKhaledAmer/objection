@@ -56,7 +56,7 @@ fn main() {
     }
 
     // We will now pass the tokens to the parser
-    let ast = parser::parser::parse(tokens);
+    let ast = parser::parser::parse_prog(tokens);
     // Print the AST if the option is enabled
     if print_ast {
         println!("{:?}", ast);

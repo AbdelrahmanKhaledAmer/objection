@@ -103,7 +103,7 @@ fn parse_expr(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr {
     match token_iter.peek() {
         Some(token) => match token.token_type {
             TokenType::IntLit => parse_literal_expression(token_iter),
-            TokenType::Id => parse_ident_expression(token_iter),
+            // TokenType::Id => parse_ident_expression(token_iter),
             _ => panic!(
                 "Expected the start of an expression, got {:?} instead.",
                 token.token_type
@@ -124,7 +124,7 @@ fn parse_literal_expression(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr 
     }
 }
 
-fn parse_ident_expression(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr {
-    let ident = parse_ident(token_iter);
-    NodeExpr::Ident(ident)
-}
+//fn parse_ident_expression(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr {
+//    let ident = parse_ident(token_iter);
+//    NodeExpr::Ident(ident)
+//}

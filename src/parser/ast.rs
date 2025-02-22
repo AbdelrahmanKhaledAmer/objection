@@ -60,14 +60,14 @@ impl Debug for NodeStmt {
 
 pub enum NodeExpr {
     Literal(NodeLiteral),
-    Ident(NodeIdent),
+    // Ident(NodeIdent),
 }
 
 impl Debug for NodeExpr {
     fn fmt(&self, f: &mut Formatter) -> Result {
         match self {
             NodeExpr::Literal(literal) => write!(f, "<Literal {:?}>", literal),
-            NodeExpr::Ident(ident) => write!(f, "<Ident {:?}>", ident),
+            // NodeExpr::Ident(ident) => write!(f, "<Ident {:?}>", ident),
         }
     }
 }

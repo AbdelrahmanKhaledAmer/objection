@@ -1,0 +1,10 @@
+// The point of this test is to:
+/*
+    1. Check that assignment statements work.
+    2. Check that identifier expressions work.
+*/
+main(): int = {
+    my_var: int = 140;
+    return my_var;
+}
+

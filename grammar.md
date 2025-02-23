@@ -55,24 +55,26 @@ $$
 ## Grammar (So Far)
 $$
 \begin{align*}
-\text{lit} &\to \text{\textcolor{green}{IntLit}}
+\text{prog} &\to \text{func* \textcolor{green}{EOF}}
+\\
+\text{func} &\to \text{ident \textcolor{green}{LP} \textcolor{green}{RP} \textcolor{green}{Colon} type \textcolor{green}{Assign} block}
+\\
+\text{type} &\to \text{\textcolor{green}{Int}}
+\\
+\text{block} &\to \text{\textcolor{green}{LB} stmt* \textcolor{green}{RB}}
+\\
+\text{stmt} &\to \text{(return | assign) \textcolor{green}{Semi}}
+\\
+\text{return} &\to \text{\textcolor{green}{Ret} expr}
+\\
+\text{assign} &\to \text{ident \textcolor{green}{Colon} type \textcolor{green}{Assign} expr}
 \\
 \text{expr} &\to \text{lit}
 \\
 &~~~|~~\text{ident}
 \\
-\text{return} &\to \text{\textcolor{green}{Ret} expr}
-\\
-\text{stmt} &\to \text{return \textcolor{green}{Semi}}
-\\
-\text{block} &\to \text{\textcolor{green}{LB} stmt* \textcolor{green}{RB}}
-\\
-\text{type} &\to \text{\textcolor{green}{Int}}
-\\
 \text{ident} &\to \text{\textcolor{green}{Id}}
 \\
-\text{func} &\to \text{ident \textcolor{green}{LP} \textcolor{green}{RP} \textcolor{green}{Colon} type \textcolor{green}{Assign} block}
-\\
-\text{prog} &\to \text{func* \textcolor{green}{EOF}}
+\text{lit} &\to \text{\textcolor{green}{IntLit}}
 \end{align*}
 $$

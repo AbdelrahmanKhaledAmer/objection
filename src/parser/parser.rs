@@ -82,6 +82,7 @@ fn parse_stmt(token_iter: &mut Peekable<Iter<Token>>) -> NodeStmt {
     match token_iter.peek() {
         Some(token) => match token.token_type {
             TokenType::Ret => stmt = parse_return_stmt(token_iter),
+            TokenType::Id => stmt = parse_assign_stmt(token_iter),
             _ => panic!(
                 "Expected the start of a statement, got {:?} instead.",
                 token.token_type
@@ -99,11 +100,20 @@ fn parse_return_stmt(token_iter: &mut Peekable<Iter<Token>>) -> NodeStmt {
     NodeStmt::Return(expr)
 }
 
+fn parse_assign_stmt(token_iter: &mut Peekable<Iter<Token>>) -> NodeStmt {
+    let ident = parse_ident(token_iter);
+    parse_symbol(token_iter, TokenType::Colon);
+    let a_type = parse_type(token_iter);
+    parse_symbol(token_iter, TokenType::Assign);
+    let expr = parse_expr(token_iter);
+    NodeStmt::Assign(ident, a_type, expr)
+}
+
 fn parse_expr(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr {
     match token_iter.peek() {
         Some(token) => match token.token_type {
             TokenType::IntLit => parse_literal_expression(token_iter),
-            // TokenType::Id => parse_ident_expression(token_iter),
+            TokenType::Id => parse_ident_expression(token_iter),
             _ => panic!(
                 "Expected the start of an expression, got {:?} instead.",
                 token.token_type
@@ -124,7 +134,7 @@ fn parse_literal_expression(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr 
     }
 }
 
-//fn parse_ident_expression(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr {
-//    let ident = parse_ident(token_iter);
-//    NodeExpr::Ident(ident)
-//}
+fn parse_ident_expression(token_iter: &mut Peekable<Iter<Token>>) -> NodeExpr {
+    let ident = parse_ident(token_iter);
+    NodeExpr::Ident(ident)
+}

@@ -1,5 +1,6 @@
 use std::env::args;
 use std::fs::read_to_string;
+use std::fs::remove_file;
 use std::fs::write;
 use std::process::Command;
 
@@ -109,6 +110,6 @@ fn main() {
         .output()
         .expect("Failed to link the object file");
     // Finally, we will remove the temporary files
-    std::fs::remove_file(&asm_fname).expect("Failed to remove the temporary assembly file");
-    std::fs::remove_file(&obj_fname).expect("Failed to remove the temporary object file");
+    remove_file(&asm_fname).expect("Failed to remove the temporary assembly file");
+    remove_file(&obj_fname).expect("Failed to remove the temporary object file");
 }

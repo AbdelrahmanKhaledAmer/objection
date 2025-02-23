@@ -1,3 +1,8 @@
+// The point of this test is to:
+/*
+    1. Check if comments are properly ignored
+    2. Check that the correct (exit) syscall is invoked when leaving main.
+*/
 main(): int = {
-    return 0;
+    return 152;
 }

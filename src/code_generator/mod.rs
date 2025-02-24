@@ -8,7 +8,7 @@ mod macos {
 }
 
 pub trait CodeGenerator {
-    fn generate(&self, prog: &NodeProg) -> String;
+    fn generate(&mut self, prog: &NodeProg) -> String;
 }
 
 pub fn code_generator_factory() -> Box<dyn CodeGenerator> {
@@ -16,7 +16,7 @@ pub fn code_generator_factory() -> Box<dyn CodeGenerator> {
     let arch = var("TARGET_ARCH").unwrap_or(ARCH.to_string());
     match os.as_str() {
         "macos" => match arch.as_str() {
-            "aarch64" => Box::new(macos::aarch64::MacOsAarch64),
+            "aarch64" => Box::new(macos::aarch64::MacOsAarch64::new()),
             _ => panic!("UNSUPPORTED ARCHITECTURE: {}", arch),
         },
         _ => panic!("UNSUPPORTED OPERATING SYSTEM: {}", os),

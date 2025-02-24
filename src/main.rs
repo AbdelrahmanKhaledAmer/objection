@@ -80,7 +80,7 @@ fn main() {
     // Now we will use the AST to generate assembly code.
     // However, we need to know the target platform to generate the correct code.
     // We will use the code_generator_factory function to create the correct code generator.
-    let generator = code_generator::code_generator_factory();
+    let mut generator = code_generator::code_generator_factory();
     let asm = generator.generate(&ast);
     // Print the assembly code if the option is enabled
     if print_asm {

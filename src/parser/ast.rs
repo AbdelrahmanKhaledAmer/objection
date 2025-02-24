@@ -48,26 +48,34 @@ impl Debug for NodeBlock {
 
 pub enum NodeStmt {
     Return(NodeExpr),
+    Assign(NodeIdent, NodeType, NodeExpr),
 }
 
 impl Debug for NodeStmt {
     fn fmt(&self, f: &mut Formatter) -> Result {
         match self {
             NodeStmt::Return(expr) => write!(f, "<Return expr={:?}>", expr),
+            NodeStmt::Assign(ident, a_type, expr) => {
+                write!(
+                    f,
+                    "<Assign {:?} a_type={:?} expr={:?}>",
+                    ident, a_type, expr
+                )
+            }
         }
     }
 }
 
 pub enum NodeExpr {
     Literal(NodeLiteral),
-    // Ident(NodeIdent),
+    Ident(NodeIdent),
 }
 
 impl Debug for NodeExpr {
     fn fmt(&self, f: &mut Formatter) -> Result {
         match self {
             NodeExpr::Literal(literal) => write!(f, "<Literal {:?}>", literal),
-            // NodeExpr::Ident(ident) => write!(f, "<Ident {:?}>", ident),
+            NodeExpr::Ident(ident) => write!(f, "<Ident {:?}>", ident),
         }
     }
 }
